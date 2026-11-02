@@ -1,5 +1,3 @@
-
-
 **Caso 1:** Restricción NOT NULL
 
 
@@ -12,7 +10,7 @@
 
 
 
-!\[Caso de violación de restricción NOT NULL](../evidencias/Caso1.png)
+!\[Caso de violación de restricción NOT NULL](/evidencias/Caso1.png)
 
 
 
@@ -32,7 +30,7 @@
 
 
 
-!\[Caso de violación de restricción UNIQUE](../evidencias/Caso2.png)
+!\[Caso de violación de restricción UNIQUE](/evidencias/Caso2.png)
 
 
 
@@ -52,7 +50,7 @@
 
 
 
-!\[Caso de violación de restricción UNIQUE](../evidencias/Caso3.png)
+!\[Caso de violación de restricción UNIQUE](/evidencias/Caso3.png)
 
 
 
@@ -72,7 +70,7 @@
 
 
 
-!\[Caso de violación de restricción CHECK](../evidencias/Caso4.png)
+!\[Caso de violación de restricción CHECK](/evidencias/Caso4.png)
 
 
 
@@ -92,7 +90,7 @@
 
 
 
-!\[Caso de violación de restricción NOT NULL](../evidencias/Caso5.png)
+!\[Caso de violación de restricción NOT NULL](/evidencias/Caso5.png)
 
 
 
@@ -112,7 +110,7 @@
 
 
 
-!\[Caso de violación de restricción NOT NULL](../evidencias/Caso1.png)
+!\[Caso de violación de restricción NOT NULL](/evidencias/Caso1.png)
 
 
 
@@ -132,7 +130,7 @@
 
 
 
-!\[Caso de violación de restricción NOT NULL](../evidencias/Caso7.png)
+!\[Caso de violación de restricción NOT NULL](/evidencias/Caso7.png)
 
 
 
@@ -152,7 +150,7 @@
 
 
 
-!\[Caso de violación de restricción NOT NULL](../evidencias/Caso8.png)
+!\[Caso de violación de restricción NOT NULL](/evidencias/Caso8.png)
 
 
 
@@ -172,7 +170,7 @@
 
 
 
-!\[Caso de violación de restricción NOT NULL](../evidencias/Caso9.png)
+!\[Caso de violación de restricción NOT NULL](/evidencias/Caso9.png)
 
 
 
@@ -192,11 +190,9 @@
 
 
 
-!\[Caso de violación de restricción NOT NULL](../evidencias/Caso10.png)
+!\[Caso de violación de restricción NOT NULL](/evidencias/Caso10.png)
 
 
 
 \---> Regla de dominio protegida: CHECK (fecha\_recepcion <= CURRENT\_DATE)
-
-
 

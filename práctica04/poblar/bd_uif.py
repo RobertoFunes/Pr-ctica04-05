@@ -18,13 +18,12 @@ import psycopg2
 from psycopg2 import sql
 
 
-def obtener_conexion():
-    """Lee las credenciales del entorno y establece la conexión con PostgreSQL."""
-    host = "localhost"
-    port = "5434"
-    dbname = "UIF"
-    user = "postgres"
-    password = "mamarre_mamarre"
+def obtener_conexion():"
+    host = os.getenv("PGHOST", "localhost")
+    port = os.getenv("PGPORT", "5434")
+    dbname = os.getenv("PGDATABASE", "UIF")
+    user = os.getenv("PGUSER", "usr_app")  # Rol de aplicación por defecto
+    password = os.getenv("PGPASSWORD", "App_LoaderSecure987!")
 
     try:
         conn = psycopg2.connect(
@@ -34,13 +33,10 @@ def obtener_conexion():
             user=user,
             password=password,
         )
-        conn.autocommit = False  # Control manual estricto de transacciones
+        conn.autocommit = False
         return conn
     except psycopg2.OperationalError as error:
-        print(f"\n[ERROR DE CONEXIÓN] No se pudo conectar a la base de datos:")
-        print(f"  Detalle: {error}")
-        print("\nVerifique que las variables de entorno estén configuradas:")
-        print("  PGHOST, PGPORT, PGDATABASE, PGUSER, PGPASSWORD\n")
+        print(f"\n[ERROR DE CONEXIÓN] {error}\n")
         sys.exit(1)
 
 
