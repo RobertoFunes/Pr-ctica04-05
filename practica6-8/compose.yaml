@@ -1,0 +1,13 @@
+services:
+  db:
+    image: postgres:16
+    container_name: practica01
+    environment:
+      POSTGRES_PASSWORD: mamarre_mamarre
+    ports:
+      - "5434:5432"
+    volumes:
+      - copia:/var/lib/postgresql/data
+
+volumes:
+  copia:
