@@ -1,13 +1,37 @@
 services:
   db:
     image: postgres:16
-    container_name: practica01
+    container_name: uif_db
     environment:
-      POSTGRES_PASSWORD: mamarre_mamarre
+      POSTGRES_USER: ${POSTGRES_USER:-usuario_de_prueba}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-contraseña_de_prueba}
+      POSTGRES_DB: ${POSTGRES_DB:-uif_db}
     ports:
       - "5434:5432"
     volumes:
       - copia:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-usuario_de_prueba} -d ${POSTGRES_DB:-uif_db}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  runner:
+    image: postgres:16
+    container_name: uif_runner
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      PGHOST: db
+      PGUSER: ${POSTGRES_USER:-usuario_de_prueba}
+      PGPASSWORD: ${POSTGRES_PASSWORD:-contraseña_de_prueba}
+      PGDATABASE: ${POSTGRES_DB:-uif_db}
+    volumes:
+      - ./scripts:/scripts:ro
+      - ./output:/output
+    eentrypoint: ["sh", "-c", "tr -d '\\r' < /scripts/run_all.sh | sh"]
 
 volumes:
   copia:
