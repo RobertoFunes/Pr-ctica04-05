@@ -4,7 +4,7 @@ services:
     container_name: uif_db
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-usuario_de_prueba}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-contraseña_de_prueba}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-contrasena_de_prueba}
       POSTGRES_DB: ${POSTGRES_DB:-uif_db}
     ports:
       - "5434:5432"
@@ -26,7 +26,7 @@ services:
     environment:
       PGHOST: db
       PGUSER: ${POSTGRES_USER:-usuario_de_prueba}
-      PGPASSWORD: ${POSTGRES_PASSWORD:-contraseña_de_prueba}
+      PGPASSWORD: ${POSTGRES_PASSWORD:-contrasena_de_prueba}
       PGDATABASE: ${POSTGRES_DB:-uif_db}
     volumes:
       - ./scripts:/scripts:ro
