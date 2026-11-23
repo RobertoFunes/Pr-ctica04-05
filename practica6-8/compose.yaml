@@ -3,7 +3,7 @@ services:
     image: postgres:17
     container_name: uif_db
     environment:
-      POSTGRES_USER: ${POSTGRES_USER:-usuario_de_prueba}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-contrasena_de_prueba}
       POSTGRES_DB: ${POSTGRES_DB:-uif_db}
     ports:
@@ -12,7 +12,7 @@ services:
       - copia:/var/lib/postgresql/data
       - ./init:/docker-entrypoint-initdb.d:ro
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-usuario_de_prueba} -d ${POSTGRES_DB:-uif_db}"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-uif_db}"]
       interval: 5s
       timeout: 5s
       retries: 10
@@ -25,7 +25,7 @@ services:
         condition: service_healthy
     environment:
       PGHOST: db
-      PGUSER: ${POSTGRES_USER:-usuario_de_prueba}
+      PGUSER: ${POSTGRES_USER:-postgres}
       PGPASSWORD: ${POSTGRES_PASSWORD:-contrasena_de_prueba}
       PGDATABASE: ${POSTGRES_DB:-uif_db}
     volumes:
