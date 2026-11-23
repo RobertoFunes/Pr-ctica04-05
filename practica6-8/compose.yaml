@@ -1,6 +1,6 @@
 services:
   db:
-    image: postgres:16
+    image: postgres:17
     container_name: uif_db
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-usuario_de_prueba}
@@ -18,7 +18,7 @@ services:
       retries: 10
 
   runner:
-    image: postgres:16
+    image: postgres:17
     container_name: uif_runner
     depends_on:
       db:
