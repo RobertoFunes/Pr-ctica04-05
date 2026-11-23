@@ -3517,6 +3517,10 @@ ALTER TABLE ONLY public.reporte_norm
 -- Name: SCHEMA public; Type: ACL; Schema: -; Owner: pg_database_owner
 --
 
+CREATE ROLE rol_admin;
+CREATE ROLE rol_app;
+CREATE ROLE rol_consulta;
+
 GRANT ALL ON SCHEMA public TO rol_admin;
 GRANT USAGE ON SCHEMA public TO rol_app;
 GRANT USAGE ON SCHEMA public TO rol_consulta;
