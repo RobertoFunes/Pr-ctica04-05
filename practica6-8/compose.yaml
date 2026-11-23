@@ -31,7 +31,7 @@ services:
     volumes:
       - ./scripts:/scripts:ro
       - ./output:/output
-    eentrypoint: ["sh", "-c", "tr -d '\\r' < /scripts/run_all.sh | sh"]
+    entrypoint: ["sh", "-c", "tr -d '\\r' < /scripts/run_all.sh | sh"]
 
 volumes:
   copia:
