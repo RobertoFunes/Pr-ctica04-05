@@ -1,0 +1,9 @@
+group: uif_proyecto
+
+desglose_norm = {
+  id_reporte:number, renglon:number, descripcion:string, monto:number
+  1001, 1, 'Compra de inmueble en efectivo', 1850000.00
+  1001, 2, 'Adquisicion de vehiculo blindado', 950000.00
+  1002, 1, 'Transferencia internacional', 2400000.00
+  1003, 1, 'Compra de joyeria de alto valor', 620000.00
+}
