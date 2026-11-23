@@ -844,7 +844,7 @@ No fue posible obtener todos los atributos al omitir cualquier dependencia, por 
 
 
 
-*Reducción mínima:* 
+*Reducción mínima:*
 
 rfc --> calle
 
@@ -934,29 +934,29 @@ rfc --> Representante legal
 
 
 
-**-Teléfono**
+***-Teléfono***
 
 
 
-a) Lado derecho simple:
+*a) Lado derecho simple:*
 
-No es posible hacer esta descomposición porque no contiene dependencias funcionales no triviales.
-
-
-
-b) Atributos sobrantes:
-
-No es posible evaluar porque no existen dependencias funcionales no triviales.
+*No es posible hacer esta descomposición porque no contiene dependencias funcionales no triviales.*
 
 
 
-c) Dependencias redundantes:
+*b) Atributos sobrantes:*
 
-Estas son un conjunto vacío
+*No es posible evaluar porque no existen dependencias funcionales no triviales.*
 
 
 
-Reducción mínima:
+*c) Dependencias redundantes:*
+
+*Estas son un conjunto vacío*
+
+
+
+*Reducción mínima:*
 
 *La tabla ya se encuentra reducida a su forma mínima.*
 
@@ -966,35 +966,35 @@ Reducción mínima:
 
 
 
-a) Lado derecho simple:
+*a) Lado derecho simple:*
 
-id\_bloqueo --> RFC 
+*id\_bloqueo --> RFC*
 
-id\_bloqueo --> Fecha
+*id\_bloqueo --> Fecha*
 
-id\_bloqueo --> Motivo
-
-
-
-b) Atributos sobrantes:
-
-No es posible probar este punto, pues solo se cuenta con un único atributo en el lado izquierdo.
+*id\_bloqueo --> Motivo*
 
 
 
-c) Dependencias redundantes:
+*b) Atributos sobrantes:*
 
-No fue posible obtener todos los atributos al omitir cualquier dependencia, por lo que no tiene dependencias redundantes, todas son necesarias.
+*No es posible probar este punto, pues solo se cuenta con un único atributo en el lado izquierdo.*
 
 
 
-Reducción mínima:
+*c) Dependencias redundantes:*
 
-id\_bloqueo --> RFC
+*No fue posible obtener todos los atributos al omitir cualquier dependencia, por lo que no tiene dependencias redundantes, todas son necesarias.*
 
-id\_bloqueo --> Fecha
 
-id\_bloqueo --> Motivo
+
+*Reducción mínima:*
+
+*id\_bloqueo --> RFC*
+
+*id\_bloqueo --> Fecha*
+
+*id\_bloqueo --> Motivo*
 
 
 
@@ -1004,35 +1004,35 @@ id\_bloqueo --> Motivo
 
 
 
-a) Lado derecho simple:
+*a) Lado derecho simple:*
 
-número de cuenta --> RFC
+*número de cuenta --> RFC*
 
-número de cuenta --> Fecha de apertura
+*número de cuenta --> Fecha de apertura*
 
-número de cuenta --> Saldo
-
-
-
-b) Atributos sobrantes:
-
-No es posible probar este punto, pues solo se cuenta con un único atributo en el lado izquierdo.
+*número de cuenta --> Saldo*
 
 
 
-c) Dependencias redundantes:
+*b) Atributos sobrantes:*
 
-No fue posible obtener todos los atributos al omitir cualquier dependencia, por lo que no tiene dependencias redundantes, todas son necesarias.
+*No es posible probar este punto, pues solo se cuenta con un único atributo en el lado izquierdo.*
 
 
 
-Reducción mínima:
+*c) Dependencias redundantes:*
 
-número de cuenta --> RFC
+*No fue posible obtener todos los atributos al omitir cualquier dependencia, por lo que no tiene dependencias redundantes, todas son necesarias.*
 
-número de cuenta --> Fecha de apertura
 
-número de cuenta --> Saldo
+
+*Reducción mínima:*
+
+*número de cuenta --> RFC*
+
+*número de cuenta --> Fecha de apertura*
+
+*número de cuenta --> Saldo*
 
 
 
@@ -1042,31 +1042,31 @@ número de cuenta --> Saldo
 
 
 
-a) Lado derecho simple:
+*a) Lado derecho simple:*
 
-id\_bien --> Tipo 
+*id\_bien --> Tipo*
 
-id\_bien --> Valor comercial
-
-
-
-b) Atributos sobrantes:
-
-No es posible probar este punto, pues solo se cuenta con un único atributo en el lado izquierdo.
+*id\_bien --> Valor comercial*
 
 
 
-c) Dependencias redundantes:
+*b) Atributos sobrantes:*
 
-No fue posible obtener todos los atributos al omitir cualquier dependencia, por lo que no tiene dependencias redundantes, todas son necesarias.
+*No es posible probar este punto, pues solo se cuenta con un único atributo en el lado izquierdo.*
 
 
 
-Reducción mínima:
+*c) Dependencias redundantes:*
 
-id\_bien --> Tipo
+*No fue posible obtener todos los atributos al omitir cualquier dependencia, por lo que no tiene dependencias redundantes, todas son necesarias.*
 
-id\_bien --> Valor comercial
+
+
+*Reducción mínima:*
+
+*id\_bien --> Tipo*
+
+*id\_bien --> Valor comercial*
 
 
 
@@ -1076,31 +1076,31 @@ id\_bien --> Valor comercial
 
 
 
-a) Lado derecho simple:
+*a) Lado derecho simple:*
 
-id\_notario --> Nombre de la institución
+*id\_notario --> Nombre de la institución*
 
-id\_notario --> Sector económico
-
-
-
-b) Atributos sobrantes:
-
-No es posible probar este punto, pues solo se cuenta con un único atributo en el lado izquierdo.
+*id\_notario --> Sector económico*
 
 
 
-c) Dependencias redundantes:
+*b) Atributos sobrantes:*
 
-No fue posible obtener todos los atributos al omitir cualquier dependencia, por lo que no tiene dependencias redundantes, todas son necesarias.
+*No es posible probar este punto, pues solo se cuenta con un único atributo en el lado izquierdo.*
 
 
 
-Reducción mínima:
+*c) Dependencias redundantes:*
 
-id\_notario --> Nombre de la institución
+*No fue posible obtener todos los atributos al omitir cualquier dependencia, por lo que no tiene dependencias redundantes, todas son necesarias.*
 
-id\_notario --> Sector económico
+
+
+*Reducción mínima:*
+
+*id\_notario --> Nombre de la institución*
+
+*id\_notario --> Sector económico*
 
 
 
@@ -1110,43 +1110,43 @@ id\_notario --> Sector económico
 
 
 
-a) Lado derecho simple:
+*a) Lado derecho simple:*
 
-Id\_operación --> RFC
+*Id\_operación --> RFC*
 
-Id\_operación --> Id\_bien
+*Id\_operación --> Id\_bien*
 
-Id\_operación --> Id\_notario
+*Id\_operación --> Id\_notario*
 
-Id\_operación --> Valor pactado
+*Id\_operación --> Valor pactado*
 
-Id\_operación --> Fecha de operación
-
-
-
-b) Atributos sobrantes:
-
-No es posible probar este punto, pues solo se cuenta con un único atributo en el lado izquierdo.
+*Id\_operación --> Fecha de operación*
 
 
 
-c) Dependencias redundantes:
+*b) Atributos sobrantes:*
 
-No fue posible obtener todos los atributos al omitir cualquier dependencia, por lo que no tiene dependencias redundantes, todas son necesarias.
+*No es posible probar este punto, pues solo se cuenta con un único atributo en el lado izquierdo.*
 
 
 
-Reducción mínima:
+*c) Dependencias redundantes:*
 
-Id\_operación --> RFC
+*No fue posible obtener todos los atributos al omitir cualquier dependencia, por lo que no tiene dependencias redundantes, todas son necesarias.*
 
-Id\_operación --> Id\_bien
 
-Id\_operación --> Id\_notario
 
-Id\_operación --> Valor pactado
+*Reducción mínima:*
 
-Id\_operación --> Fecha de operación
+*Id\_operación --> RFC*
+
+*Id\_operación --> Id\_bien*
+
+*Id\_operación --> Id\_notario*
+
+*Id\_operación --> Valor pactado*
+
+*Id\_operación --> Fecha de operación*
 
 
 
@@ -1156,39 +1156,39 @@ Id\_operación --> Fecha de operación
 
 
 
-a) Lado derecho simple:
+*a) Lado derecho simple:*
 
-id\_reporte --> Id\_notario
+*id\_reporte --> Id\_notario*
 
-id\_reporte --> Tipo de reporte
+*id\_reporte --> Tipo de reporte*
 
-id\_reporte --> Fecha de recepción
+*id\_reporte --> Fecha de recepción*
 
-id\_reporte --> Monto total
-
-
-
-b) Atributos sobrantes:
-
-No es posible probar este punto, pues solo se cuenta con un único atributo en el lado izquierdo.
+*id\_reporte --> Monto total*
 
 
 
-c) Dependencias redundantes:
+*b) Atributos sobrantes:*
 
-No fue posible obtener todos los atributos al omitir cualquier dependencia, por lo que no tiene dependencias redundantes, todas son necesarias.
+*No es posible probar este punto, pues solo se cuenta con un único atributo en el lado izquierdo.*
 
 
 
-Reducción mínima:
+*c) Dependencias redundantes:*
 
-id\_reporte --> Id\_notario
+*No fue posible obtener todos los atributos al omitir cualquier dependencia, por lo que no tiene dependencias redundantes, todas son necesarias.*
 
-id\_reporte --> Tipo de reporte
 
-id\_reporte --> Fecha de recepción
 
-id\_reporte --> Monto total
+*Reducción mínima:*
+
+*id\_reporte --> Id\_notario*
+
+*id\_reporte --> Tipo de reporte*
+
+*id\_reporte --> Fecha de recepción*
+
+*id\_reporte --> Monto total*
 
 
 
@@ -1198,35 +1198,35 @@ id\_reporte --> Monto total
 
 
 
-a) Lado derecho simple:
+*a) Lado derecho simple:*
 
-Id\_reporte, Número de renglón --> Descripción
+*Id\_reporte, Número de renglón --> Descripción*
 
-Id\_reporte, Número de renglón --> Monto
+*Id\_reporte, Número de renglón --> Monto*
 
-Id\_reporte, Número de renglón --> Divisa
-
-
-
-b) Atributos sobrantes:
-
-Al eliminar un atributo de la clave primaria, no es posible determinar de forma alguna la totalidad de los atributos, por lo tanto en ambos casos ninguno es sobrante. 
+*Id\_reporte, Número de renglón --> Divisa*
 
 
 
-c) Dependencias redundantes:
+*b) Atributos sobrantes:*
 
-Al eliminar un atributo de la regla, no es posible determinarlo o conocerlo mediante otra, por lo tanto, no contiene dependencias redundantes y la tabla se encuentra en su forma mínima.
+*Al eliminar un atributo de la clave primaria, no es posible determinar de forma alguna la totalidad de los atributos, por lo tanto en ambos casos ninguno es sobrante.*
 
 
 
-Reducción mínima:
+*c) Dependencias redundantes:*
 
-Id\_reporte, Número de renglón --> Descripción
+*Al eliminar un atributo de la regla, no es posible determinarlo o conocerlo mediante otra, por lo tanto, no contiene dependencias redundantes y la tabla se encuentra en su forma mínima.*
 
-Id\_reporte, Número de renglón --> Monto
 
-Id\_reporte, Número de renglón --> Divisa
+
+*Reducción mínima:*
+
+*Id\_reporte, Número de renglón --> Descripción*
+
+*Id\_reporte, Número de renglón --> Monto*
+
+*Id\_reporte, Número de renglón --> Divisa*
 
 
 
@@ -1236,39 +1236,39 @@ Id\_reporte, Número de renglón --> Divisa
 
 
 
-a) Lado derecho simple:
+*a) Lado derecho simple:*
 
-Id\_transacción --> Emisor
+*Id\_transacción --> Emisor*
 
-Id\_transacción --> Receptor
+*Id\_transacción --> Receptor*
 
-Id\_transacción --> Monto
+*Id\_transacción --> Monto*
 
-Id\_transacción --> Fecha y hora
-
-
-
-b) Atributos sobrantes:
-
-No es posible probar este punto, pues solo se cuenta con un único atributo en el lado izquierdo.
+*Id\_transacción --> Fecha y hora*
 
 
 
-c) Dependencias redundantes:
+*b) Atributos sobrantes:*
 
-No fue posible obtener todos los atributos al omitir cualquier dependencia, por lo que no tiene dependencias redundantes, todas son necesarias.
+*No es posible probar este punto, pues solo se cuenta con un único atributo en el lado izquierdo.*
 
 
 
-Reducción mínima:
+*c) Dependencias redundantes:*
 
-Id\_transacción --> Emisor
+*No fue posible obtener todos los atributos al omitir cualquier dependencia, por lo que no tiene dependencias redundantes, todas son necesarias.*
 
-Id\_transacción --> Receptor
 
-Id\_transacción --> Monto
 
-Id\_transacción --> Fecha y hora
+*Reducción mínima:*
+
+*Id\_transacción --> Emisor*
+
+*Id\_transacción --> Receptor*
+
+*Id\_transacción --> Monto*
+
+*Id\_transacción --> Fecha y hora*
 
 
 
@@ -1278,35 +1278,35 @@ Id\_transacción --> Fecha y hora
 
 
 
-a) Lado derecho simple:
+*a) Lado derecho simple:*
 
-Id\_alerta --> Id\_transacción
+*Id\_alerta --> Id\_transacción*
 
-Id\_alerta --> Nivel de riesgo
+*Id\_alerta --> Nivel de riesgo*
 
-Id\_alerta --> Fecha 
-
-
-
-b) Atributos sobrantes:
-
-No es posible probar este punto, pues solo se cuenta con un único atributo en el lado izquierdo.
+*Id\_alerta --> Fecha*
 
 
 
-c) Dependencias redundantes:
+*b) Atributos sobrantes:*
 
-No fue posible obtener todos los atributos al omitir cualquier dependencia, por lo que no tiene dependencias redundantes, todas son necesarias.
+*No es posible probar este punto, pues solo se cuenta con un único atributo en el lado izquierdo.*
 
 
 
-Reducción mínima:
+*c) Dependencias redundantes:*
 
-Id\_alerta --> Id\_transacción
+*No fue posible obtener todos los atributos al omitir cualquier dependencia, por lo que no tiene dependencias redundantes, todas son necesarias.*
 
-Id\_alerta --> Nivel de riesgo
 
-Id\_alerta --> Fecha
+
+*Reducción mínima:*
+
+*Id\_alerta --> Id\_transacción*
+
+*Id\_alerta --> Nivel de riesgo*
+
+*Id\_alerta --> Fecha*
 
 
 
@@ -1316,33 +1316,47 @@ Id\_alerta --> Fecha
 
 
 
-a) Lado derecho simple:
+*a) Lado derecho simple:*
 
-Número de expediente --> Id\_alerta
+*Número de expediente --> Id\_alerta*
 
-Número de expediente --> Fecha de apertura
+*Número de expediente --> Fecha de apertura*
 
-Número de expediente --> Fiscal asignado
-
-
-
-b) Atributos sobrantes:
-
-No es posible probar este punto, pues solo se cuenta con un único atributo en el lado izquierdo.
+*Número de expediente --> Fiscal asignado*
 
 
 
-c) Dependencias redundantes:
+*b) Atributos sobrantes:*
 
-No fue posible obtener todos los atributos al omitir cualquier dependencia, por lo que no tiene dependencias redundantes, todas son necesarias.
+*No es posible probar este punto, pues solo se cuenta con un único atributo en el lado izquierdo.*
 
 
 
-Reducción mínima:
+*c) Dependencias redundantes:*
 
-Número de expediente --> Id\_alerta
+*No fue posible obtener todos los atributos al omitir cualquier dependencia, por lo que no tiene dependencias redundantes, todas son necesarias.*
 
-Número de expediente --> Fecha de apertura
 
-Número de expediente --> Fiscal asignado
+
+*Reducción mínima:*
+
+*Número de expediente --> Id\_alerta*
+
+*Número de expediente --> Fecha de apertura*
+
+*Número de expediente --> Fiscal asignado*
+
+
+
+***Implementación del esquema resultante:*** <i>En la imagen se observa que la operación SELECT devolvió los 4 renglones originales sin alteraciones, lo que comprueba que no se perdió información en el proceso de normalización en el esquema resultante.</i>
+
+
+
+!\[Evidencia de población de tabla](/evidencias/poblacion\_tabla\_desnormalizada.png)
+
+
+
+
+
+
 

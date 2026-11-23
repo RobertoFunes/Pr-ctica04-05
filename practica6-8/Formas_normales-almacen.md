@@ -258,7 +258,7 @@
 |-|-|-|
 |ID de Notario|INT|PRIMARY KEY|
 |Nombre de institución|VARCHAR(50)|NOT NULL|
-|Sector económico |VARCHAR(50)|NOT NULL|
+|Sector económico|VARCHAR(50)|NOT NULL|
 
 
 
@@ -277,15 +277,123 @@
 
 * ***Dim\_economía***
 
+&#x09;*Forma normal de la dimensión: Después de identificar la relación transitiva concluí que la tabla se encuentra en 2FN, pues aunque cuenta con dependencias transitivas, no cuenta con dependencias parciales.*
+
+
+
+&#x09;*Dependencia transitiva conservada: Al analizar los atributos de esta tabla, detectamos las siguientes dependencias transitivas:* 
+
+1. *entidad --> nombre\_entidad: cada nombre es definido por un ID de entidad, fue posible averiguarlo usando la semántica del dominio.* 
+
+*2. producción\_bruta\_total, consumo\_intermedio --> valor agregado: La PBT y el consumo intermedio son parámetros usados para calcular el valor agregado.*
+
+*3. activos\_fijos\_adquiridos, insumos utilizados --> formacion\_capital: el atributo formacion\_capital es calculado por la diferencia de los activos e insumos, por lo tanto aquí también existe una dependencia transitiva, pues atributos que no son una llave candidata definen otros atributos.*
+
+
+
+&#x09;*¿Qué beneficio hay en conservar la tabla de esta forma?*
+
+*El principal beneficio es que es posible agrupar en una sola tabla mucha información que con una tabla normalizada, sería dispersa y sería una base de datos menos eficiente al necesitar de muchos JOIN para poder calcular los atributos necesarios para los resultados de las estadísticas y parámetros calculados.*
+
 
 
 * ***Dim\_sismos***
+
+&#x09;*Forma normal de la dimensión: Al analizar la tabla y las dependencias que existen en ella, podemos concluir que la tabla está en 2FN, pues no cuenta con dependencias parciales porque solo tiene una llave primaria, pero sí existen dependencias transitivas.*
+
+
+
+&#x09;*Dependencia transitiva conservada: Como en el caso anterior, observamos mediante la regla de dominio semántico algunas dependencias transitivas y otras fueron descubiertas investigando el significado de cada dato. Las dependencias identificadas en esta dimensión fueron:*
+
+1. *estado --> nombre de estado: Cada nombre de estado es definido por el ID de un estado, es decir, de un atributo que no es una llave candidata, por lo que aquí existe una dependencia transitiva y por lo tanto rompe la 3FN.*
+2. *nombre de estado --> referencia de localización: La referencia de localización se toma de una localidad de un estado, por lo que estos datos dependen de la identificación del estado donde tuvo lugar el epicentro del sismo.*
+
+&#x09;
+
+&#x09;*¿Qué beneficio hay en conservar la tabla de esta forma?*
+
+*Como en el punto anterior, es una forma más fácil de agrupar la información y crear una base de datos más eficiente a comparación de una base de datos con múltiples tablas dispersas.*
 
 
 
 * ***Dim\_tiempo***
 
+&#x09;*Forma normal de la dimensión: Al haber encontrado dependencias transitivas, concluí que esta tabla se encuentra normalizada de acuerdo a la 2FN.*
 
 
-* ***Dim\_zonas*** 
+
+&#x09;*Dependencia transitiva conservada: Es posible observar que existen diversos atributos que son calculados o dependen de otros para ser identificados, identificamos las siguientes dependencias transitivas:*
+
+1. *fecha --> anio, mes, dia: cada uno de los atributos localizados de lado derecho depende del dato fecha que es de tipo DATE, por lo que es indivisible y no infringe la 1FN, lo que indica que anio, mes y dia dependen de fecha para poder obtener un valor.*
+2. *mes --> trimestre: Es posible calcular el trimestre actual dependiendo de en que mes ocurra un sismo.*
+
+&#x09;
+
+&#x09;*¿Qué beneficio hay en conservar la tabla de esta forma?*
+
+*El agrupamiento de información es mucho más sencillo y hace a la base de datos más eficiente al prescindir de múltiples tablas.*
+
+&#x09;
+
+
+
+* ***Dim\_zonas***
+
+&#x09;*Forma normal de la dimensión: Esta tabla cuenta con las dependencias transitivas identificadas en el siguiente punto, por lo tanto se encuentra en la 2FN.*
+
+
+
+&#x09;*Dependencia transitiva conservada: Se encontraron las siguientes relaciones transitivas:*
+
+1. *entidad --> nom\_ent: De modo similar a las tablas anteriores, el nombre de una entidad está determinado por el identificador único de cada entidad.*
+2. *entidad --> pobfem, pobmas: Es necesario conocer la entidad en la que habita un número de habitantes masculinos y femeninos para poder conocer el número de su población.*
+3. *pobfem, pobmas --> pobtot: La población total es un parámetro calculado a partir de la suma de la población masculina y femenina.*
+
+
+
+&#x09;*¿Qué beneficio hay en conservar la tabla de esta forma?*
+
+*El agrupamiento de información permite contener mucha información útil y relacionada en una única tabla, lo que también permite simplificar las operaciones de cálculo de atributos derivados, ahorrando complejidad a la base de datos.*
+
+
+
+***Párrafo de cierre:***
+
+
+
+*Es conveniente desnormalizar cuando se manejan grandes cantidades de datos que es necesario agrupar para por ejemplo, calcular atributos derivados o también en el caso de necesitar una base de datos más eficiente evitando realizar cientos de operaciones JOIN que cuestan eficiencia.*
+
+*En cambio, si se quisiera aplicar la desnormalización en el proyecto de la UIF no conviene desnormalizar porque es un sistema transaccional con pocos atributos derivados y donde los datos sí se modifican con frecuencia; si desnormalizáramos a propósito, tendríamos que vigilar estrictamente la redundancia y las anomalías de actualización y borrado, ya que dejar datos desactualizados o contradictorios comprometería toda una investigación financiera.*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
