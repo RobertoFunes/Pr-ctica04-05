@@ -364,7 +364,7 @@
 
 
 
-*Dependencia Funcional: No tiene dependencias funcionales no triviales..*
+*Dependencia Funcional: No tiene dependencias funcionales no triviales.*
 
 *Regla de negocio: La tabla está conformada por su llave primaria compuesta (rfc, numero\_telefono), sirviendo solo como puente de multiplicidad, por lo que carece de atributos subordinados.*
 
@@ -446,7 +446,7 @@
 
 *Dependencia Funcional: Número de cuenta --> RFC, fecha de apertura, saldo.*
 
-*Regla de negocio: Cada identificador representa una cuenta bancaria que contiene información útil a los intereses de la UIF, como la fecha de apertura y el saldo existente, y que esta ligada a un único contribuyente mediante su RFC.* 
+*Regla de negocio: Cada identificador representa una cuenta bancaria que contiene información útil a los intereses de la UIF, como la fecha de apertura y el saldo existente, y que esta ligada a un único contribuyente mediante su RFC.*
 
 
 
@@ -807,4 +807,542 @@
 
 
 *Conclusión: Al tener el 100% de los datos ({id\_alerta}+ = T), demostramos que id\_alerta es la llave primaria.*
+
+
+
+#### ***3. Reducción a un conjunto mínimo***
+
+
+
+
+
+***-Contribuyente***
+
+
+
+*a) Lado derecho simple:*
+
+rfc --> calle
+
+rfc --> C.P.
+
+rfc --> Actividad económica
+
+rfc --> firma electrónica
+
+
+
+*b) Atributos sobrantes:*
+
+No es posible probar este punto, pues solo se cuenta con un único atributo en el lado izquierdo.
+
+
+
+*c) Dependencias redundantes:*
+
+No fue posible obtener todos los atributos al omitir cualquier dependencia, por lo que no tiene dependencias redundantes, todas son necesarias.
+
+
+
+*Reducción mínima:* 
+
+rfc --> calle
+
+rfc --> C.P.
+
+rfc --> Actividad económica
+
+rfc --> firma electrónica
+
+
+
+
+
+***-Persona física***
+
+
+
+*a) Lado derecho simple*
+
+rfc --> CURP
+
+rfc --> Nombre
+
+rfc --> Ingresos
+
+
+
+*b) Atributos sobrantes*
+
+No es posible probar este punto, pues solo se cuenta con un único atributo en el lado izquierdo.
+
+
+
+*c) Dependencias redundantes*
+
+No fue posible obtener todos los atributos al omitir cualquier dependencia, por lo que no tiene dependencias redundantes, todas son necesarias.
+
+
+
+*Reducción mínima:*
+
+rfc --> CURP
+
+rfc --> Nombre
+
+rfc --> Ingresos
+
+
+
+
+
+***-Persona moral***
+
+
+
+*a) Lado derecho simple*
+
+rfc --> Razón social
+
+rfc --> Fecha de constitución
+
+rfc --> Representante legal
+
+
+
+*b) Atributos sobrantes*
+
+No es posible probar este punto, pues solo se cuenta con un único atributo en el lado izquierdo.
+
+
+
+*c) Dependencias redundantes*
+
+No fue posible obtener todos los atributos al omitir cualquier dependencia, por lo que no tiene dependencias redundantes, todas son necesarias.
+
+
+
+*Reducción mínima:*
+
+rfc --> Razón social
+
+rfc --> Fecha de constitución
+
+rfc --> Representante legal
+
+
+
+
+
+**-Teléfono**
+
+
+
+a) Lado derecho simple:
+
+No es posible hacer esta descomposición porque no contiene dependencias funcionales no triviales.
+
+
+
+b) Atributos sobrantes:
+
+No es posible evaluar porque no existen dependencias funcionales no triviales.
+
+
+
+c) Dependencias redundantes:
+
+Estas son un conjunto vacío
+
+
+
+Reducción mínima:
+
+*La tabla ya se encuentra reducida a su forma mínima.*
+
+
+
+***-Lista de bloqueados***
+
+
+
+a) Lado derecho simple:
+
+id\_bloqueo --> RFC 
+
+id\_bloqueo --> Fecha
+
+id\_bloqueo --> Motivo
+
+
+
+b) Atributos sobrantes:
+
+No es posible probar este punto, pues solo se cuenta con un único atributo en el lado izquierdo.
+
+
+
+c) Dependencias redundantes:
+
+No fue posible obtener todos los atributos al omitir cualquier dependencia, por lo que no tiene dependencias redundantes, todas son necesarias.
+
+
+
+Reducción mínima:
+
+id\_bloqueo --> RFC
+
+id\_bloqueo --> Fecha
+
+id\_bloqueo --> Motivo
+
+
+
+
+
+***-Cuenta bancaria***
+
+
+
+a) Lado derecho simple:
+
+número de cuenta --> RFC
+
+número de cuenta --> Fecha de apertura
+
+número de cuenta --> Saldo
+
+
+
+b) Atributos sobrantes:
+
+No es posible probar este punto, pues solo se cuenta con un único atributo en el lado izquierdo.
+
+
+
+c) Dependencias redundantes:
+
+No fue posible obtener todos los atributos al omitir cualquier dependencia, por lo que no tiene dependencias redundantes, todas son necesarias.
+
+
+
+Reducción mínima:
+
+número de cuenta --> RFC
+
+número de cuenta --> Fecha de apertura
+
+número de cuenta --> Saldo
+
+
+
+
+
+***-Bien***
+
+
+
+a) Lado derecho simple:
+
+id\_bien --> Tipo 
+
+id\_bien --> Valor comercial
+
+
+
+b) Atributos sobrantes:
+
+No es posible probar este punto, pues solo se cuenta con un único atributo en el lado izquierdo.
+
+
+
+c) Dependencias redundantes:
+
+No fue posible obtener todos los atributos al omitir cualquier dependencia, por lo que no tiene dependencias redundantes, todas son necesarias.
+
+
+
+Reducción mínima:
+
+id\_bien --> Tipo
+
+id\_bien --> Valor comercial
+
+
+
+
+
+***-Entidad reportante***
+
+
+
+a) Lado derecho simple:
+
+id\_notario --> Nombre de la institución
+
+id\_notario --> Sector económico
+
+
+
+b) Atributos sobrantes:
+
+No es posible probar este punto, pues solo se cuenta con un único atributo en el lado izquierdo.
+
+
+
+c) Dependencias redundantes:
+
+No fue posible obtener todos los atributos al omitir cualquier dependencia, por lo que no tiene dependencias redundantes, todas son necesarias.
+
+
+
+Reducción mínima:
+
+id\_notario --> Nombre de la institución
+
+id\_notario --> Sector económico
+
+
+
+
+
+***-Operación Vulnerable***
+
+
+
+a) Lado derecho simple:
+
+Id\_operación --> RFC
+
+Id\_operación --> Id\_bien
+
+Id\_operación --> Id\_notario
+
+Id\_operación --> Valor pactado
+
+Id\_operación --> Fecha de operación
+
+
+
+b) Atributos sobrantes:
+
+No es posible probar este punto, pues solo se cuenta con un único atributo en el lado izquierdo.
+
+
+
+c) Dependencias redundantes:
+
+No fue posible obtener todos los atributos al omitir cualquier dependencia, por lo que no tiene dependencias redundantes, todas son necesarias.
+
+
+
+Reducción mínima:
+
+Id\_operación --> RFC
+
+Id\_operación --> Id\_bien
+
+Id\_operación --> Id\_notario
+
+Id\_operación --> Valor pactado
+
+Id\_operación --> Fecha de operación
+
+
+
+
+
+***-Reporte UIF***
+
+
+
+a) Lado derecho simple:
+
+id\_reporte --> Id\_notario
+
+id\_reporte --> Tipo de reporte
+
+id\_reporte --> Fecha de recepción
+
+id\_reporte --> Monto total
+
+
+
+b) Atributos sobrantes:
+
+No es posible probar este punto, pues solo se cuenta con un único atributo en el lado izquierdo.
+
+
+
+c) Dependencias redundantes:
+
+No fue posible obtener todos los atributos al omitir cualquier dependencia, por lo que no tiene dependencias redundantes, todas son necesarias.
+
+
+
+Reducción mínima:
+
+id\_reporte --> Id\_notario
+
+id\_reporte --> Tipo de reporte
+
+id\_reporte --> Fecha de recepción
+
+id\_reporte --> Monto total
+
+
+
+
+
+***-Desglose***
+
+
+
+a) Lado derecho simple:
+
+Id\_reporte, Número de renglón --> Descripción
+
+Id\_reporte, Número de renglón --> Monto
+
+Id\_reporte, Número de renglón --> Divisa
+
+
+
+b) Atributos sobrantes:
+
+Al eliminar un atributo de la clave primaria, no es posible determinar de forma alguna la totalidad de los atributos, por lo tanto en ambos casos ninguno es sobrante. 
+
+
+
+c) Dependencias redundantes:
+
+Al eliminar un atributo de la regla, no es posible determinarlo o conocerlo mediante otra, por lo tanto, no contiene dependencias redundantes y la tabla se encuentra en su forma mínima.
+
+
+
+Reducción mínima:
+
+Id\_reporte, Número de renglón --> Descripción
+
+Id\_reporte, Número de renglón --> Monto
+
+Id\_reporte, Número de renglón --> Divisa
+
+
+
+
+
+***-Transacción***
+
+
+
+a) Lado derecho simple:
+
+Id\_transacción --> Emisor
+
+Id\_transacción --> Receptor
+
+Id\_transacción --> Monto
+
+Id\_transacción --> Fecha y hora
+
+
+
+b) Atributos sobrantes:
+
+No es posible probar este punto, pues solo se cuenta con un único atributo en el lado izquierdo.
+
+
+
+c) Dependencias redundantes:
+
+No fue posible obtener todos los atributos al omitir cualquier dependencia, por lo que no tiene dependencias redundantes, todas son necesarias.
+
+
+
+Reducción mínima:
+
+Id\_transacción --> Emisor
+
+Id\_transacción --> Receptor
+
+Id\_transacción --> Monto
+
+Id\_transacción --> Fecha y hora
+
+
+
+
+
+***-Alerta***
+
+
+
+a) Lado derecho simple:
+
+Id\_alerta --> Id\_transacción
+
+Id\_alerta --> Nivel de riesgo
+
+Id\_alerta --> Fecha 
+
+
+
+b) Atributos sobrantes:
+
+No es posible probar este punto, pues solo se cuenta con un único atributo en el lado izquierdo.
+
+
+
+c) Dependencias redundantes:
+
+No fue posible obtener todos los atributos al omitir cualquier dependencia, por lo que no tiene dependencias redundantes, todas son necesarias.
+
+
+
+Reducción mínima:
+
+Id\_alerta --> Id\_transacción
+
+Id\_alerta --> Nivel de riesgo
+
+Id\_alerta --> Fecha
+
+
+
+
+
+***-Expediente***
+
+
+
+a) Lado derecho simple:
+
+Número de expediente --> Id\_alerta
+
+Número de expediente --> Fecha de apertura
+
+Número de expediente --> Fiscal asignado
+
+
+
+b) Atributos sobrantes:
+
+No es posible probar este punto, pues solo se cuenta con un único atributo en el lado izquierdo.
+
+
+
+c) Dependencias redundantes:
+
+No fue posible obtener todos los atributos al omitir cualquier dependencia, por lo que no tiene dependencias redundantes, todas son necesarias.
+
+
+
+Reducción mínima:
+
+Número de expediente --> Id\_alerta
+
+Número de expediente --> Fecha de apertura
+
+Número de expediente --> Fiscal asignado
 
