@@ -1,9 +1,247 @@
-group: uif_proyecto
+group: UIF_Normalizada
+description: Muestra normalizada de la base UIF conservando integridad referencial
 
-desglose_norm = {
-  id_reporte:number, renglon:number, descripcion:string, monto:number
-  1001, 1, 'Compra de inmueble en efectivo', 1850000.00
-  1001, 2, 'Adquisicion de vehiculo blindado', 950000.00
-  1002, 1, 'Transferencia internacional', 2400000.00
-  1003, 1, 'Compra de joyeria de alto valor', 620000.00
+entidad_reportante = {
+  id_notario:number, nombre_institucion:string, sector_economico:string
+  9, 'Mares y Zavala S.A. de C.V. SA de CV', 'Metales Preciosos y Joyería'
+  12, 'Pichardo S.A. de C.V. SA de CV', 'Activos Virtuales y Fintech'
+  16, 'Luna-Peralta S.A. de C.V. SA de CV', 'Inmobiliario y Construcción'
+  51, 'Vázquez Cortez y Noriega SA de CV', 'Vehículos y Blindaje'
+  52, 'Industrias Bravo Cervantes y Bravo SA de CV', 'Juegos con Apuesta y Sorteos'
+  53, 'Club Solano Mora y Godínez SA de CV', 'Activos Virtuales y Fintech'
+  75, 'Perales Fuentes y Quiñones SA de CV', 'Metales Preciosos y Joyería'
+  78, 'Sanabria y Asociados SA de CV', 'Activos Virtuales y Fintech'
+  82, 'Chávez S.A. SA de CV', 'Activos Virtuales y Fintech'
+  85, 'Téllez-Olvera SA de CV', 'Bancario y Financiero'
+  88, 'Uribe-Díaz SA de CV', 'Inmobiliario y Construcción'
+  96, 'Ceballos-Terán SA de CV', 'Inmobiliario y Construcción'
+  97, 'Romo Barrientos y Ordóñez SA de CV', 'Notarial y Fe Pública'
+  99, 'Roldán Covarrubias y Zayas SA de CV', 'Juegos con Apuesta y Sorteos'
+  124, 'Zepeda A.C. SA de CV', 'Inmobiliario y Construcción'
+  136, 'Laboratorios Barajas y Garay SA de CV', 'Juegos con Apuesta y Sorteos'
+  140, 'Industrias Franco y Toro SA de CV', 'Inmobiliario y Construcción'
+  151, 'Laboratorios Matías-Rosario SA de CV', 'Juegos con Apuesta y Sorteos'
+  173, 'Márquez y de Anda e Hijos SA de CV', 'Activos Virtuales y Fintech'
+  177, 'Bétancourt y Murillo S.C. SA de CV', 'Bancario y Financiero'
 }
+
+bien = {
+  id_bien:number, tipo_bien:string, valor_comercial:number
+  1, 'Embarcación', 1945914.44
+  3, 'Activo virtual', 3851631.48
+  6, 'Joya o metal precioso', 7280745.27
+  7, 'Embarcación', 4212393.36
+  8, 'Blindaje', 7935012.17
+  9, 'Inmueble', 2937419.97
+  10, 'Joya o metal precioso', 2393081.97
+  14, 'Activo virtual', 1375389.11
+  15, 'Obra de arte', 9745271.81
+  16, 'Blindaje', 6884181.87
+  17, 'Blindaje', 7099109.01
+  18, 'Joya o metal precioso', 776903.40
+}
+
+operacion_vulnerable = {
+  id_operacion:number, rfc:string, id_bien:number, id_notario:number, valor_pactado:number, fecha_operacion:date
+  15, 'JEFY830625RIE', 18, 12, 2093700.02, 2026-10-18
+  34, 'BAE160608RP2', 6, 88, 2190716.92, 2025-06-27
+  35, 'WEI120728QJ5', 7, 136, 1593738.35, 2024-11-04
+  43, 'CZDZ600311409', 14, 52, 1205718.59, 2026-04-24
+  46, 'WLRQ721003VA2', 16, 82, 2329469.43, 2025-09-19
+  47, 'QHI020205SH3', 17, 124, 154243.12, 2026-03-23
+  56, 'NXJS56032633I', 1, 16, 4668199.01, 2025-02-12
+  69, 'DWLX660221QDY', 3, 173, 875944.74, 2026-06-05
+  109, 'WIDX080126A4F', 9, 97, 1573264.38, 2026-07-05
+  111, 'GXX261001CNO', 15, 78, 3057585.81, 2025-01-14
+  181, 'PGEO950614TD9', 10, 140, 1009529.92, 2026-07-24
+  196, 'MWH040428Z36', 8, 96, 703361.63, 2025-09-06
+}
+
+reporte_uif = {
+  id_reporte:number, id_notario:number, tipo_reporte:string, fecha_recepcion:date, monto_total:number
+  1, 151, 'Operación Relevante', 2026-03-15, 8535282.54
+  2, 9, 'Operación Inusual', 2026-04-15, 2347684.03
+  3, 85, 'Aviso de Actividad Vulnerable', 2026-10-30, 14703573.13
+  4, 53, 'Aviso de Actividad Vulnerable', 2026-10-27, 1002453.26
+  5, 99, 'Operación Inusual', 2026-10-31, 7147925.94
+  6, 85, 'Aviso de Actividad Vulnerable', 2026-10-27, 9603099.42
+  7, 78, 'Operación Relevante', 2026-05-03, 2612783.71
+  8, 173, 'Operación Inusual', 2026-07-13, 529284.35
+  9, 177, 'Aviso de Actividad Vulnerable', 2026-09-28, 451235.65
+  10, 51, 'Operación Relevante', 2026-07-29, 13674612.39
+  11, 99, 'Operación Preocupante', 2026-10-17, 3128089.83
+  12, 75, 'Operación Relevante', 2025-12-09, 6847222.12
+}
+
+desglose = {
+  id_reporte:number, numero_renglon:number, descripcion:string, monto:number, divisa:string
+  1, 1, 'Cómo región sueño comenzó tarde campaña.', 13695.60, 'EUR'
+  2, 1, 'Asunto principales dicho sala.', 6457.74, 'EUR'
+  3, 1, 'Proyectos hacen orden viene.', 30017.82, 'USD'
+  3, 2, 'Alrededor niños decisión tú diario muchos.', 37486.27, 'MXN'
+  3, 3, 'Dinero momento llevar cine puerto parís sabía.', 29069.11, 'USD'
+  4, 1, 'Tomar administración arte resultados presenta situación película.', 47749.36, 'GBP'
+  4, 2, 'Campaña del artículo fuentes viene.', 37108.98, 'EUR'
+  5, 1, 'Sabe noviembre permite veces.', 29912.93, 'USD'
+  6, 1, 'Sido animales fueron qué.', 49012.63, 'EUR'
+  6, 2, 'Muestra naturaleza septiembre formas minutos ya san.', 38792.76, 'CHF'
+  7, 1, 'Nivel especialmente grupo entrada riesgo proyectos américa.', 26467.82, 'GBP'
+  8, 1, 'Fácil señora muestra hora.', 11884.94, 'CAD'
+  8, 2, 'México algo eso valor cargo cabo.', 1450.24, 'CAD'
+  8, 3, 'Respuesta rafael sigue.', 16480.39, 'EUR'
+  9, 1, 'Producto mujer atención encuentro.', 25491.80, 'CAD'
+  10, 1, 'Dicho primera voz quería pregunta quiero.', 30471.81, 'USD'
+  11, 1, 'Aspectos al cuya menor habla valor.', 33602.18, 'CHF'
+  11, 2, 'Democracia resultado mirada encima negro parece pudo.', 2682.85, 'EUR'
+  11, 3, 'Mujer favor fueron voy.', 16135.68, 'CHF'
+  12, 1, 'Ellos además agua estas cuales ocasión.', 14399.17, 'CHF'
+}
+
+cuenta_bancaria = {
+  numero_cuenta:string, rfc:string, fecha_apertura:date, saldo:number
+  '1869227312067828', 'VBO990723P8I', 2017-03-23, 5822475.00
+  '2115032704873526', 'IMGG451115DKN', 2022-02-28, 28180.70
+  '3703683041021228', 'GXX261001CNO', 2019-03-17, 4137176.32
+  '4021165837964462', 'CZDZ600311409', 2025-08-19, 4697857.05
+  '4668471385517723', 'TWYK6510130TV', 2017-08-18, 2143072.66
+  '4825397826212336', 'ISH220621J49', 2023-07-07, 589969.37
+  '5361783134534717', 'VTRN621210XPN', 2022-06-07, 6216296.76
+  '5446967597850399', 'SJL220917JRH', 2023-07-28, 7764456.91
+  '5486798008348449', 'QXVB910610FL0', 2019-10-14, 3707660.46
+  '5495584038141301', 'SJL220917JRH', 2024-05-07, 6422218.69
+  '6942850869373460', 'VWAT560531L72', 2025-06-02, 2812480.85
+  '7040232345328795', 'NKD111129NGW', 2016-12-28, 1927113.90
+  '7178154238728514', 'VUK100713RWI', 2017-07-28, 8547095.67
+  '7244538328376944', 'QFXW861020CIY', 2021-02-18, 1228307.44
+  '7418053520124860', 'TYFA700611FEY', 2019-01-01, 5182496.20
+  '7887706695651033', 'LKHG9407237P5', 2022-12-02, 6459502.73
+  '8014877197360049', 'NDW2404175BG', 2023-01-03, 7237238.34
+  '8370420264766442', 'WVGU600626D54', 2024-04-16, 7419695.59
+  '8382177329118578', 'IVNS661005K3N', 2017-03-29, 71291.02
+  '8411116574492332', 'ILB260220MAE', 2022-12-25, 4502486.63
+  '8667798689116415', 'XEC120604HGZ', 2024-12-09, 8022140.34
+  '9240434872035169', 'TJKO530612HTC', 2026-07-12, 3653090.52
+  '9837046094658472', 'ILB260220MAE', 2018-07-25, 1202021.46
+}
+
+transaccion = {
+  id_transaccion:number, cuenta_origen:string, cuenta_destino:string, monto:number, fecha_hora:date
+  9, '4021165837964462', '4668471385517723', 313533.07, 2025-06-06
+  30, '9240434872035169', '4668471385517723', 586565.02, 2026-09-08
+  32, '5495584038141301', '8411116574492332', 79213.48, 2026-04-04
+  48, '5446967597850399', '4825397826212336', 934088.94, 2025-11-05
+  56, '8014877197360049', '1869227312067828', 409328.71, 2025-12-03
+  63, '7040232345328795', '9837046094658472', 821324.42, 2025-06-24
+  76, '5486798008348449', '7178154238728514', 145941.04, 2025-07-01
+  83, '6942850869373460', '8667798689116415', 69724.42, 2026-02-14
+  96, '2115032704873526', '8382177329118578', 616704.12, 2025-11-16
+  102, '7418053520124860', '7244538328376944', 263171.29, 2026-01-08
+  151, '7887706695651033', '5361783134534717', 159473.64, 2026-03-18
+  200, '8370420264766442', '3703683041021228', 449678.68, 2025-02-01
+}
+
+alerta = {
+  id_alerta:number, id_transaccion:number, fecha_alerta:date, nivel_riesgo:string
+  1, 9, 2025-11-23, 'Alto'
+  2, 151, 2026-04-22, 'Crítico'
+  3, 76, 2026-07-06, 'Alto'
+  4, 102, 2026-08-04, 'Bajo'
+  5, 30, 2025-11-25, 'Medio'
+  6, 83, 2026-03-03, 'Crítico'
+  7, 48, 2025-12-09, 'Alto'
+  8, 63, 2026-09-30, 'Bajo'
+  9, 56, 2026-05-31, 'Alto'
+  10, 96, 2026-02-17, 'Medio'
+  11, 200, 2026-09-28, 'Alto'
+  12, 32, 2026-01-15, 'Bajo'
+}
+
+expediente = {
+  num_expediente:number, id_alerta:number, fecha_apertura:date, fiscal_asignado:string
+  17, 4, 2026-10-31, 'Jaqueline Adame'
+  19, 11, 2026-10-31, 'Modesto Ocampo'
+  27, 2, 2026-10-31, 'Fidel Madrid Puga'
+  31, 1, 2026-10-31, 'Barbara Rivero'
+  49, 9, 2026-10-31, 'Lucía Esther Montaño Reynoso'
+  103, 12, 2026-10-31, 'Carmen Guerra Rosas'
+  117, 7, 2026-10-31, 'Mariana Sessa de la O'
+  127, 8, 2026-10-31, 'Gabino Reyes'
+  141, 10, 2026-10-31, 'Ing. Zeferino Quiñónez'
+  159, 5, 2026-10-31, 'Sr. Augusto Guerra'
+  180, 6, 2026-10-31, 'Margarita Catalina Menéndez Beltrán'
+  187, 3, 2026-10-31, 'Eugenio Diego Fonseca Manzanares'
+}
+
+persona_fisica = {
+  rfc:string, curp:string, nombre:string, ingresos:number
+  'ABUJ071209NUV', 'ABUJ071209MNTXVYQ8', 'Serafín Abraham Segovia', 483107.76
+  'ANPW9208305PS', 'ANPW920830MBCXTWY3', 'Ing. Mario Carvajal', 230109.65
+  'CZDZ600311409', 'CZDZ600311HPLLDLL4', 'Carlos Olivera Ayala', 428938.69
+  'DWLX660221QDY', 'DWLX660221HTCBRS47', 'Andrés Jos Arce Colunga', 234120.06
+  'IMGG451115DKN', 'IMGG451115HMCQSKN2', 'Karina Elizondo Menéndez', 52552.98
+  'IVNS661005K3N', 'IVNS661005MGRDVVW7', 'Javier Fidel Armenta Villaseñor', 257937.40
+  'JEFY830625RIE', 'JEFY830625HCHXZBR0', 'Ernesto Urrutia', 234734.90
+  'LKHG9407237P5', 'LKHG940723HMSKYNC5', 'Abelardo Jacinto Armendáriz', 248562.17
+  'NXJS56032633I', 'NXJS560326MSPWHF49', 'Iván Lorenzo Barrios Zamora', 346145.84
+  'PGEO950614TD9', 'PGEO950614MCLTWCG1', 'Reynaldo Iván Sanabria', 350363.52
+  'QFXW861020CIY', 'QFXW861020HSLCCVC6', 'María José Estefanía Colunga', 214095.64
+  'QXVB910610FL0', 'QXVB910610HCCDZFA9', 'Alfonso Evelio Alvarado Villaseñor', 290418.47
+  'TJKO530612HTC', 'TJKO530612MPLTHWW8', 'Modesto Rendón Sepúlveda', 88568.27
+  'TWYK6510130TV', 'TWYK651013MMSQPKD9', 'Maximiliano Ontiveros Solorio', 330134.91
+  'TYFA700611FEY', 'TYFA700611HTSZZFX2', 'Dr. Arturo Lebrón', 165573.14
+  'VTRN621210XPN', 'VTRN621210MSLMLJE1', 'Lic. Alicia del Río', 272068.84
+  'VWAT560531L72', 'VWAT560531HGRRMGN8', 'Eloisa Elena Colón Holguín', 150143.19
+  'WIDX080126A4F', 'WIDX080126HDGDBQJ1', 'Lilia Ana Luisa Soliz Luna', 159298.66
+  'WLRQ721003VA2', 'WLRQ721003MOCCLYQ5', 'Laura María José Madera Rolón', 398523.06
+  'WVGU600626D54', 'WVGU600626HDFRBQ24', 'Débora Espinoza Llamas', 461998.97
+}
+
+persona_moral = {
+  rfc:string, representante_legal:string, razon_social:string, fecha_constitucion:date
+  'ABX001128PE6', 'Citlali Tejeda', 'Despacho Alvarado Palacios y Sanabria', 1986-09-23
+  'AFC990104BVZ', 'Elsa Lorena Gamez', 'Despacho del Río-Gallegos', 1995-07-08
+  'AJC110331VLN', 'Timoteo Galván', 'Laboratorios Esparza Peralta y Dueñas', 2004-08-19
+  'ANH0402149A3', 'Uriel Esquivel Vergara', 'Proyectos Ledesma y Estévez', 1978-05-15
+  'APX190815144', 'Elisa Carmona Melgar', 'Despacho Granado y Paz', 1990-06-10
+  'AYZ981101E9R', 'Sr. José Peres', 'Rendón-Amaya y Asociados', 1980-05-18
+  'BAE160608RP2', 'Lic. Eric Valadez', 'Vanegas y Chapa S.A.', 1989-06-29
+  'BCU100623QE4', 'Alfredo Jaime Velasco', 'Club Hurtado-Negrón', 1989-05-22
+  'GXX261001CNO', 'Virginia Barrera', 'Grupo Mesa y Griego', 2013-07-22
+  'ILB260220MAE', 'Ing. Eloy Delgado', 'Barela S.A. de C.V.', 2006-02-20
+  'ISH220621J49', 'María José Estela Valladares', 'Bustamante Pichardo y Negrete', 2018-08-10
+  'MWH040428Z36', 'Augusto Ramiro Salcedo', 'Ferrer y Lozada e Hijos', 2010-09-19
+  'NDW2404175BG', 'Linda Moya Arriaga', 'Corporacin Tamayo Bermúdez y Serrano', 1990-01-09
+  'NKD111129NGW', 'Jacobo Cornelio Robledo', 'Solís-Chacón', 2010-07-29
+  'QHI020205SH3', 'Amanda Aurora Ávila Terrazas', 'Grupo Anaya-Rubio', 2011-11-16
+  'SJL220917JRH', 'Lic. Indira de León', 'Despacho Casanova Garibay y Cazares', 2024-01-29
+  'VBO990723P8I', 'Silvano Rojas', 'Leiva y Alcaraz e Hijos', 2005-12-19
+  'VUK100713RWI', 'Felix Jonás Salgado', 'de la Crúz-Luna S.A. de C.V.', 2006-07-03
+  'WEI120728QJ5', 'Ing. Conchita Ontiveros', 'Chacón-Reyna e Hijos', 1990-01-17
+  'XEC120604HGZ', 'Pedro Rodolfo Marrero', 'Crespo-Altamirano A.C.', 2013-07-30
+}
+
+lista_bloqueados = {
+  id_bloqueo:number, rfc:string, fecha_bloqueo:date, motivo:string
+  2, 'VUK100713RWI', 2025-09-22, 'Financiamiento ilícito'
+  4, 'VWAT560531L72', 2026-03-13, 'Orden judicial'
+  5, 'WVGU600626D54', 2026-05-01, 'Operaciones inusuales'
+  7, 'AFC990104BVZ', 2023-08-22, 'Fraude fiscal'
+  32, 'APX190815144', 2023-01-17, 'Operaciones inusuales'
+  36, 'ILB260220MAE', 2024-06-05, 'Fraude fiscal'
+  43, 'AYZ981101E9R', 2026-06-28, 'Orden judicial'
+  45, 'JEFY830625RIE', 2022-05-28, 'Orden judicial'
+  47, 'DWLX660221QDY', 2025-05-20, 'Fraude fiscal'
+  48, 'MWH040428Z36', 2025-12-03, 'Orden judicial'
+  49, 'TJKO530612HTC', 2026-09-15, 'Orden judicial'
+  64, 'VTRN621210XPN', 2022-08-04, 'Fraude fiscal'
+  86, 'AJC110331VLN', 2022-04-13, 'Orden judicial'
+  87, 'XEC120604HGZ', 2026-09-06, 'Fraude fiscal'
+  120, 'IVNS661005K3N', 2022-09-04, 'Financiamiento ilícito'
+}
+
+contribuyente = {
+  rfc:string, calle:string, actividad_economica:string, e_firma:string, codigo_postal:string
+  'GARM9004128A1', 'Av. Insurgentes Sur 1602', 'Servicios de consultoria en informatica', 'EFIRMA990011223344556677889900AABBCCDDEEFF0011', '03920'
+  'TLM8401017H2', 'Paseo de la Reforma 222', 'Comercio al por mayor de equipo de computo', 'EFIRMAAABBCCDDEEFF00112233445566778899001122', '06600'
+}
+
