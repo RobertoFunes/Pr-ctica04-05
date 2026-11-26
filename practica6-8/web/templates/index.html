@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro UIF - Entidades</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 450px; margin: 40px auto; padding: 20px; }
+        label { display: block; margin-top: 12px; font-weight: bold; }
+        input { width: 100%; padding: 8px; margin-top: 4px; box-sizing: border-box; }
+        button { margin-top: 18px; padding: 10px 16px; background: #1a56db; color: white; border: none; cursor: pointer; width: 100%; }
+        .mensaje { margin-top: 16px; padding: 10px; background: #eef2ff; border-left: 4px solid #1a56db; }
+    </style>
+</head>
+<body>
+    <h2>Registro de Entidad (UIF)</h2>
+
+    <form action="/registrar" method="POST">
+        <label for="id_notario">ID Notario (número único):</label>
+        <input type="number" id="id_notario" name="id_notario" required>
+
+        <label for="nombre_institucion">Nombre de la Institución:</label>
+        <input type="text" id="nombre_institucion" name="nombre_institucion" maxlength="50" required>
+
+        <label for="sector_economico">Sector Económico:</label>
+        <input type="text" id="sector_economico" name="sector_economico" maxlength="50" required>
+
+        <button type="submit">Guardar en Base de Datos</button>
+    </form>
+
+    {% if mensaje %}
+        <div class="mensaje">{{ mensaje }}</div>
+    {% endif %}
+</body>
+</html>

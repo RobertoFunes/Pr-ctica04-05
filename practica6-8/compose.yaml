@@ -1,0 +1,37 @@
+services:
+  db:
+    image: postgres:17
+    container_name: uif_db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-contrasena_de_prueba}
+      POSTGRES_DB: ${POSTGRES_DB:-uif_db}
+    ports:
+      - "5434:5432"
+    volumes:
+      - copia:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-uif_db}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  runner:
+    image: postgres:17
+    container_name: uif_runner
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      PGHOST: db
+      PGUSER: ${POSTGRES_USER:-postgres}
+      PGPASSWORD: ${POSTGRES_PASSWORD:-contrasena_de_prueba}
+      PGDATABASE: ${POSTGRES_DB:-uif_db}
+    volumes:
+      - ./scripts:/scripts:ro
+      - ./output:/output
+    entrypoint: ["sh", "-c", "tr -d '\\r' < /scripts/run_all.sh | sh"]
+
+volumes:
+  copia:
