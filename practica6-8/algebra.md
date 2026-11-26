@@ -442,7 +442,7 @@ d) Consulta SQL con verificación de resultado: En este último punto comprobamo
 
 
 
-!\[Consulta1](/evidencias/Consulta1.png)
+!\[Consulta1](evidencias/Consulta1.png)
 
 
 
