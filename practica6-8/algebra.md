@@ -402,7 +402,7 @@ d) Consulta SQL con verificación de resultado:
 
 
 
-a) Pregunta del dominio: ¿Qué reportes UIF contienen renglones de desglose en todas las divisas registradas en la muestra? 
+a) Pregunta del dominio: ¿Qué reportes UIF contienen renglones de desglose en todas las divisas registradas en la muestra?
 
 
 
@@ -429,4 +429,30 @@ d) Consulta SQL con verificación de resultado: En este último punto comprobamo
 
 
 !\[División en sql](/evidencias/division\_sql.png)
+
+
+
+
+
+#### **Álgebra del proyecto asignado (sismos)**
+
+
+
+* Consulta 1: 
+
+
+
+!\[Consulta1](/evidencias/Consulta1.png)
+
+
+
+
+
+
+
+
+
+
+
+
 
